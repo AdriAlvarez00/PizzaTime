@@ -231,6 +231,7 @@
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Assets\Tayuno.png" />
     <Content Include="Assets\TitleArt.png" />
+    <Content Include="Assets\TitleBackground.png" />
     <Content Include="Assets\TitleScreenButton.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
