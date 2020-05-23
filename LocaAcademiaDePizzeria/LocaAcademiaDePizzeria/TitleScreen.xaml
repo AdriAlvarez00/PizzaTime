@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="LocaAcademiaDePizzeria.TitleScreen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:LocaAcademiaDePizzeria"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+
+        <Image Source="Assets/TitleArt.png" Stretch="Fill"/>
+        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Vertical" Canvas.Top="300" Canvas.Left="-125">
+                <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="NewGamePointerEntered" PointerExited="NewGamePointerExited">
+                    <Image Source="Assets/NewGameButtonUnselected.png"/>
+                </Button>
+                <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="LoadGamePointerEntered" PointerExited="LoadGamePointerExited">
+                    <Image Source="Assets/LoadGameUnselected.png"/>
+                </Button>
+                <Button Style="{StaticResource MenuButtonStyle}" Click="ExitGameClickEvent"  PointerEntered="ExitGamePointerEntered" PointerExited="ExitGamePointerExited">
+                    <Image Source="Assets/ExitGameUnselected.png" PointerPressed="ExitGameClickEvent"/>
+                </Button>
+
+            </StackPanel>
+        </Canvas>
+    </Grid>
+</Page>

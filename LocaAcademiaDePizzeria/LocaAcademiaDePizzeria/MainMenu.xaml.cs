@@ -63,9 +63,6 @@ namespace LocaAcademiaDePizzeria
             ElementSoundPlayer.State = ElementSoundPlayerState.On;
 
             mediaPlayer = new MediaPlayer();
-            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Sounds/Italian_Spirit.mp3"));
-            mediaPlayer.Volume = 0.5;
-            mediaPlayer.Play();
         }
 
         private void CreatePizzerias()
