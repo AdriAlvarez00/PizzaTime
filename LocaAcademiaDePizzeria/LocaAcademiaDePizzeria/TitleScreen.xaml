@@ -9,9 +9,14 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image Source="Assets/TitleBackground.png" Stretch="Fill"/>
-        <Image Source="Assets/TitleArt.png" VerticalAlignment="Center" HorizontalAlignment="Center" Width="500"/>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Image Source="Assets/TitleBackground.png" Stretch="Fill" Grid.RowSpan="3"/>
+        <Image Source="Assets/TitleArt.png" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1" />
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2">
             <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="NewGamePointerEntered" PointerExited="NewGamePointerExited">
                 <Image Source="Assets/NewGameButtonUnselected.png"/>
             </Button>
