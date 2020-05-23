@@ -65,7 +65,7 @@
                          MapServiceToken="3F9n0LcGV1wSH3iIU89U~BwTbE03iRdHjskVJ_rPB5Q~AuNQu5A2wnQJDEEiczijHmsZDJOxjSF-_a--KOaTCWvf26nhdG0PrJmIHUiPIqrU"
                          TrafficFlowVisible="True">
         </maps:MapControl>
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Width="165" Height="80" Background="LightBlue" Opacity="50">
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Width="165" Height="80" Background="#ADD8E6EF" Opacity="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="3*" />
@@ -153,7 +153,7 @@
                 <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
             <Image x:Name="driverInfoImg" Grid.Row="0" Source="Assets/LargeTile.scale-400.png" />
-            <TextBlock x:Name="driverInfoDescription" Grid.Row="1" Text="PIZZY ESTA AQUI" HorizontalAlignment="Center" />
+            <TextBlock x:Name="driverInfoDescription" Grid.Row="1" Text="Estadísticas de los conductores" HorizontalAlignment="Center" />
             <Grid x:Name="driverInfoStats" Grid.Row="2" Margin="0,0,0,46">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
@@ -181,7 +181,7 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <Image x:Name="abilityInfoImg" Grid.Row="0" Source="Assets/LargeTile.scale-400.png" />
-            <TextBlock x:Name="abilityInfoDescription" Grid.Row="1" Text="PIZZY ESTA AQUI" HorizontalAlignment="Center"
+            <TextBlock x:Name="abilityInfoDescription" Grid.Row="1" Text="Información de las habilidades" HorizontalAlignment="Center"
                        TextWrapping="WrapWholeWords" />
         </Grid>
 

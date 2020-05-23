@@ -193,6 +193,7 @@ namespace LocaAcademiaDePizzeria
 
         private void OpenAbilties()
         {
+            Grid_DriverInfo.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Button_OpenAbilitiesGrid.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Grid_expandedAbility.Visibility = Windows.UI.Xaml.Visibility.Visible;
             Grid_AbilityInfo.Visibility = Windows.UI.Xaml.Visibility.Visible;
@@ -207,6 +208,7 @@ namespace LocaAcademiaDePizzeria
 
         private void OpenDrivers()
         {
+            Grid_AbilityInfo.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Grid_expandedDrivers.Visibility = Windows.UI.Xaml.Visibility.Visible;
             Grid_collapsedDrivers.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Grid_DriverInfo.Visibility = Windows.UI.Xaml.Visibility.Visible;
