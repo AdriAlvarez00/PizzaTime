@@ -9,21 +9,18 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
         <Image Source="Assets/TitleArt.png" Stretch="Fill"/>
-        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Orientation="Vertical" Canvas.Top="300" Canvas.Left="-125">
-                <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="NewGamePointerEntered" PointerExited="NewGamePointerExited">
-                    <Image Source="Assets/NewGameButtonUnselected.png"/>
-                </Button>
-                <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="LoadGamePointerEntered" PointerExited="LoadGamePointerExited">
-                    <Image Source="Assets/LoadGameUnselected.png"/>
-                </Button>
-                <Button Style="{StaticResource MenuButtonStyle}" Click="ExitGameClickEvent"  PointerEntered="ExitGamePointerEntered" PointerExited="ExitGamePointerExited">
-                    <Image Source="Assets/ExitGameUnselected.png" PointerPressed="ExitGameClickEvent"/>
-                </Button>
+        <StackPanel Orientation="Vertical" Canvas.Top="300" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="60">
+            <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="NewGamePointerEntered" PointerExited="NewGamePointerExited">
+                <Image Source="Assets/NewGameButtonUnselected.png"/>
+            </Button>
+            <Button Style="{StaticResource MenuButtonStyle}" Click="NewGameClickEvent" PointerEntered="LoadGamePointerEntered" PointerExited="LoadGamePointerExited">
+                <Image Source="Assets/LoadGameUnselected.png"/>
+            </Button>
+            <Button Style="{StaticResource MenuButtonStyle}" Click="ExitGameClickEvent"  PointerEntered="ExitGamePointerEntered" PointerExited="ExitGamePointerExited">
+                <Image Source="Assets/ExitGameUnselected.png" PointerPressed="ExitGameClickEvent"/>
+            </Button>
 
-            </StackPanel>
-        </Canvas>
+        </StackPanel>
     </Grid>
 </Page>
