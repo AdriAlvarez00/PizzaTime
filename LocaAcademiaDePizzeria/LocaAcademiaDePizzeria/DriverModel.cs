@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.UI;
 
 namespace LocaAcademiaDePizzeria
 {
@@ -19,6 +20,8 @@ namespace LocaAcademiaDePizzeria
         public int happiness { get; set; }
 
         private int _carryBar;
+
+        public Color routeColor;
 
         public int carryBar
         {
@@ -64,6 +67,7 @@ namespace LocaAcademiaDePizzeria
                 money=9,
                 speed = 30,
                 happiness = 100,
+                routeColor = Colors.IndianRed,
             },
             new Driver()
             {
@@ -74,6 +78,7 @@ namespace LocaAcademiaDePizzeria
                 money=6,
                 speed = 20,
                 happiness = 80,
+                routeColor = Colors.BlueViolet,
             },
             new Driver()
             {
@@ -84,6 +89,7 @@ namespace LocaAcademiaDePizzeria
                 money=7,
                 speed = 40,
                 happiness = 135,
+                routeColor = Colors.GreenYellow,
             }
         };
 

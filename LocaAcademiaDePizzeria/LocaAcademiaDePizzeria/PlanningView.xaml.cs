@@ -13,8 +13,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
@@ -202,6 +200,8 @@ namespace LocaAcademiaDePizzeria
             {
                 int i = mapaSoria.Children.IndexOf(e.OriginalSource as DependencyObject);
                 i--; //el primer child es la pizzería
+                routeViews[i].RouteColor = selectedDriver.routeColor;
+
                 //logica asgiganr pedido
                 if (!mapaSoria.Routes.Contains(routeViews[i]))
                 {
