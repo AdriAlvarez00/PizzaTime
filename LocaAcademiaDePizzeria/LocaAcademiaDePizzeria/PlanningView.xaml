@@ -184,5 +184,15 @@
             <TextBlock x:Name="abilityInfoDescription" Grid.Row="1" Text="PIZZY ESTA AQUI" HorizontalAlignment="Center"
                        TextWrapping="WrapWholeWords" />
         </Grid>
+
+        <Image
+            x:Name="tutorialBlock"
+            Source="Assets/Tutorials/TutorialBlock.png"
+            Stretch="Fill">
+        </Image>
+
+        <Canvas x:Name="tutorialCanvas"/>
+
+
     </Grid>
 </Page>

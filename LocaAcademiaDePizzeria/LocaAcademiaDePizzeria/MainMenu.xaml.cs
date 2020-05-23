@@ -35,14 +35,19 @@ namespace LocaAcademiaDePizzeria
 
         public bool isPizzeriaSelected = false;
 
+        private Button[] tutorials = new Button[2];
+        private int currentTutorial = 0;
+
         public Geopoint selectedLocation;
 
         public MediaPlayer mediaPlayer;
+        public MediaPlayer tutorialSounds;
 
         public class MainMenuParameters
         {
             public MediaPlayer mediaPlayer;
             public Geopoint selectedLocation;
+            public MediaPlayer tutorialSounds;
         }
 
         public MainMenu()
@@ -63,6 +68,52 @@ namespace LocaAcademiaDePizzeria
             ElementSoundPlayer.State = ElementSoundPlayerState.On;
 
             mediaPlayer = new MediaPlayer();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Assets/Sounds/Italian_Spirit.mp3"));
+            mediaPlayer.Volume = 0.5;
+            mediaPlayer.Play();
+
+            tutorialSounds = new MediaPlayer();
+            tutorialSounds.Source = MediaSource.CreateFromUri(new Uri(this.BaseUri, "Assets/Sounds/PizzySound.mp3"));
+            tutorialSounds.Volume = 1;
+            tutorialSounds.Play();
+            
+            //Tutoriales
+            createTutorials();
+        }
+
+        private void createTutorials()
+        {
+            tutorials[0] = createTutorialButton(600, 250, 510, 140, "/Assets/Tutorials/T1-1.png", true);
+            tutorials[1] = createTutorialButton(600, 250, 510, 140, "/Assets/Tutorials/T1-2.png", false);
+        }
+
+        private Button createTutorialButton(int w, int h, int left, int top, string route, bool visible)
+        {
+            Button t = new Button();
+            t.Width = w; t.Height = h;
+            Image tImage = new Image();
+            tImage.Source = new BitmapImage(new Uri(this.BaseUri, route));
+            tImage.Stretch = Stretch.Uniform;
+            t.Content = tImage;
+            t.Click += tutorialImageClicked;
+            if (!visible) t.Visibility = Visibility.Collapsed;
+
+            tutorialCanvas.Children.Add(t);
+            Canvas.SetLeft(t, left);
+            Canvas.SetTop(t, top);
+            return t;
+        }
+
+        private void tutorialImageClicked(object sender, RoutedEventArgs e)
+        {
+            tutorials[currentTutorial].Visibility = Visibility.Collapsed;
+            currentTutorial++;
+            if (currentTutorial < tutorials.Length)
+            {
+                tutorials[currentTutorial].Visibility = Visibility.Visible;
+                tutorialSounds.Play();
+            }
+            else tutorialBlock.Visibility = Visibility.Collapsed;
         }
 
         private void CreatePizzerias()
@@ -99,6 +150,7 @@ namespace LocaAcademiaDePizzeria
                 MainMenuParameters p = new MainMenuParameters();
                 p.mediaPlayer = mediaPlayer;
                 p.selectedLocation = selectedLocation;
+                p.tutorialSounds = tutorialSounds;
                 this.Frame.Navigate(typeof(PlanningView), p);
             }
         }

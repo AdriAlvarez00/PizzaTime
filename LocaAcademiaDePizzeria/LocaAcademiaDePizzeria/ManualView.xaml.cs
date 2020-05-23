@@ -51,6 +51,10 @@ namespace LocaAcademiaDePizzeria
         public Color[] colors = { Colors.LightGreen, Colors.LightCoral, Colors.LightGray, Colors.Aqua, Colors.White };
 
         public MediaPlayer mediaPlayer;
+        public MediaPlayer tutorialSounds;
+
+        private Button[] tutorials = new Button[7];
+        private int currentTutorial = 0;
 
         public ManualView()
         {
@@ -82,8 +86,51 @@ namespace LocaAcademiaDePizzeria
             PlanningViewParameters p = e.Parameter as PlanningViewParameters;
             mediaPlayer = p.mediaPlayer;
             requests = p.requests;
+            tutorialSounds = p.tutorialSounds;
             CreateBikes();
-        }     
+            createTutorials();
+        }
+
+        private void createTutorials()
+        {
+            tutorials[0] = createTutorialButton(400, 350, 65, 355, "/Assets/Tutorials/T3-1.png", true);
+            tutorials[1] = createTutorialButton(400, 350, 65, 355, "/Assets/Tutorials/T3-2.png", false);
+            tutorials[2] = createTutorialButton(500, 300, 75, 175, "/Assets/Tutorials/T3-3.png", false);
+            tutorials[3] = createTutorialButton(500, 300, 640, 410, "/Assets/Tutorials/T3-4.png", false);
+            tutorials[4] = createTutorialButton(500, 250, 535, 210, "/Assets/Tutorials/T3-5.png", false);
+            tutorials[5] = createTutorialButton(500, 250, 610, 60, "/Assets/Tutorials/T3-6.png", false);
+            tutorials[6] = createTutorialButton(700, 450, 310, 130, "/Assets/Tutorials/T3-7.png", false);
+        }
+
+        private Button createTutorialButton(int w, int h, int left, int top, string route, bool visible)
+        {
+            Button t = new Button();
+            t.Width = w; t.Height = h;
+            Image tImage = new Image();
+            tImage.Source = new BitmapImage(new Uri(this.BaseUri, route));
+            tImage.Stretch = Stretch.Uniform;
+            t.Content = tImage;
+            t.Click += tutorialImageClicked;
+            if (!visible) t.Visibility = Visibility.Collapsed;
+
+            tutorialCanvas.Children.Add(t);
+            Canvas.SetLeft(t, left);
+            Canvas.SetTop(t, top);
+            return t;
+        }
+
+
+
+        private void tutorialImageClicked(object sender, RoutedEventArgs e)
+        {
+            tutorials[currentTutorial].Visibility = Visibility.Collapsed;
+            currentTutorial++;
+            if (currentTutorial < tutorials.Length)
+            {
+                tutorials[currentTutorial].Visibility = Visibility.Visible;
+                tutorialSounds.Play();
+            }
+        }
 
         private async void CreateBikes()
         {

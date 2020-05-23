@@ -20,14 +20,10 @@
         <SolidColorBrush x:Key="InteractableColor" Color="Green"></SolidColorBrush>
     </Page.Resources>
 
-    <Grid>
-        <!--<Image
-            Source="Assets/MapSoria.png"
-            Stretch="Fill">
-        </Image>-->
+    <Grid x:Name="menuGrid">
         <maps:MapControl x:Name="mapaSoria" 
-                         MapServiceToken="3F9n0LcGV1wSH3iIU89U~BwTbE03iRdHjskVJ_rPB5Q~AuNQu5A2wnQJDEEiczijHmsZDJOxjSF-_a--KOaTCWvf26nhdG0PrJmIHUiPIqrU"
-                         TrafficFlowVisible="True">
+               MapServiceToken="3F9n0LcGV1wSH3iIU89U~BwTbE03iRdHjskVJ_rPB5Q~AuNQu5A2wnQJDEEiczijHmsZDJOxjSF-_a--KOaTCWvf26nhdG0PrJmIHUiPIqrU"
+               TrafficFlowVisible="True">
         </maps:MapControl>
         <!--<Canvas>
             <Button Width="50" Height="70" Canvas.Left="1000" Canvas.Top="600" BorderThickness="0" Background="#00000000" Click="OnPizzeriaSelected">
@@ -53,5 +49,13 @@
         <Button Style="{StaticResource NextScreenButtonStyle}" x:Name="PizzaTimeButton" Click="OnButtonClicked">
             <Image Source="Assets/MainMenuButtonInactive.png"/>
         </Button>
+
+        <Image
+            x:Name="tutorialBlock"
+            Source="Assets/Tutorials/TutorialBlock.png"
+            Stretch="Fill">
+        </Image>
+
+        <Canvas x:Name="tutorialCanvas"/>
     </Grid>
 </Page>
