@@ -46,9 +46,11 @@ namespace LocaAcademiaDePizzeria
 
         public DateTime dateTimer;
 
-        public Geopoint[] requests = new Geopoint[5];
+        public Geopoint[] requests;
 
-        public Color[] colors = { Colors.LightGreen, Colors.LightCoral, Colors.LightGray, Colors.Aqua, Colors.White };
+        public MapRouteView[] routeViews;
+
+        public bool[] isRouteVisible;
 
         public MediaPlayer mediaPlayer;
 
@@ -82,43 +84,31 @@ namespace LocaAcademiaDePizzeria
             PlanningViewParameters p = e.Parameter as PlanningViewParameters;
             mediaPlayer = p.mediaPlayer;
             requests = p.requests;
+            routeViews = p.routeViews;
+            isRouteVisible = p.isRouteVisible;
             CreateBikes();
         }     
 
-        private async void CreateBikes()
+        private void CreateBikes()
         {
-            BasicGeoposition pizzaPos1; pizzaPos1.Latitude = 41.765633; pizzaPos1.Longitude = -2.471333; pizzaPos1.Altitude = 1050;
-            BasicGeoposition pizzaPos2; pizzaPos2.Latitude = 41.769806; pizzaPos2.Longitude = -2.474726; pizzaPos2.Altitude = 1050;
-            BasicGeoposition pizzaPos3; pizzaPos3.Latitude = 41.761557; pizzaPos3.Longitude = -2.468557; pizzaPos3.Altitude = 1050;
-            BasicGeoposition pizzaPos4; pizzaPos4.Latitude = 41.760440; pizzaPos4.Longitude = -2.474464; pizzaPos4.Altitude = 1050;
-            BasicGeoposition pizzaPos5; pizzaPos5.Latitude = 41.769015; pizzaPos5.Longitude = -2.466636; pizzaPos5.Altitude = 1050;
+            List<Color> colors = new List<Color>();
 
-            Geopoint[] pizzeriaPositions = new Geopoint[5]{ new Geopoint(pizzaPos1), new Geopoint(pizzaPos2),
-                new Geopoint(pizzaPos3), new Geopoint(pizzaPos4), new Geopoint(pizzaPos5) };
-          
-
+            //create as many bikers as selected halfway to one of their deliveries
             for(int i = 0; i< 5; i++)
             {
-                //bikes
-                createImage("/Assets/ManualView/Bike.png", pizzeriaPositions[i]);
+                if(isRouteVisible[i] && !colors.Contains(routeViews[i].RouteColor)){
+                    colors.Add(routeViews[i].RouteColor);
+                    BasicGeoposition bikerPos = routeViews[i].Route.Path.Positions[routeViews[i].Route.Path.Positions.Count / 2];
+                    createImage("/Assets/ManualView/Bike.png", new Geopoint(bikerPos));
+                }
+            }
 
+            for (int i = 0; i< 5; i++)
+            {
                 //requests
                 createImage("/Assets/ManualView/Request.png", requests[i]);
 
-                MapRouteFinderResult routeResult = await MapRouteFinder.GetDrivingRouteAsync(pizzeriaPositions[i], requests[i],
-                    MapRouteOptimization.Distance, MapRouteRestrictions.None);
-
-                //Proceso de mostrar la ruta anterior en el mapa
-                if (routeResult.Status == MapRouteFinderStatus.Success)
-                {
-                    // Inicializamos un MapRouteView
-                    MapRouteView viewOfRoute = new MapRouteView(routeResult.Route);
-                    viewOfRoute.RouteColor = colors[i];
-                    viewOfRoute.OutlineColor = Colors.Black;
-
-                    // Lo añadimos a la colección Routes del mapa
-                    mapaSoria.Routes.Add(viewOfRoute);
-                }
+                if(isRouteVisible[i]) mapaSoria.Routes.Add(routeViews[i]);
             }
         }
 

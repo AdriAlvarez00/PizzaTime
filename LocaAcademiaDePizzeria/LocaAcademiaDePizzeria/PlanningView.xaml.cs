@@ -46,7 +46,7 @@ namespace LocaAcademiaDePizzeria
 
         public MapRouteView[] routeViews = new MapRouteView[5];
 
-        public Color[] colors = { Colors.LightGreen, Colors.LightCoral, Colors.LightGray, Colors.Aqua, Colors.White };
+        public bool[] isRouteVisible = new bool[5];
 
         public MediaPlayer mediaPlayer;
 
@@ -54,6 +54,8 @@ namespace LocaAcademiaDePizzeria
         {
             public MediaPlayer mediaPlayer;
             public Geopoint[] requests;
+            public MapRouteView[] routeViews;
+            public bool[] isRouteVisible;
         }
 
         public PlanningView()
@@ -130,10 +132,11 @@ namespace LocaAcademiaDePizzeria
                 {
                     // Inicializamos un MapRouteView
                     MapRouteView viewOfRoute = new MapRouteView(routeResult.Route);
-                    viewOfRoute.RouteColor = colors[i];
+                    viewOfRoute.RouteColor = Colors.Black;
                     viewOfRoute.OutlineColor = Colors.Black;
 
                     routeViews[i] = viewOfRoute; //guardamos pero no mostramos
+                    isRouteVisible[i] = false;
                 }
             }
         }
@@ -191,6 +194,8 @@ namespace LocaAcademiaDePizzeria
             PlanningViewParameters p = new PlanningViewParameters();
             p.mediaPlayer = mediaPlayer;
             p.requests = requests;
+            p.routeViews = routeViews;
+            p.isRouteVisible = isRouteVisible;
             this.Frame.Navigate(typeof(ManualView), p);
         }
 
@@ -203,18 +208,20 @@ namespace LocaAcademiaDePizzeria
                 routeViews[i].RouteColor = selectedDriver.routeColor;
 
                 //logica asgiganr pedido
-                if (!mapaSoria.Routes.Contains(routeViews[i]))
+                if (!isRouteVisible[i])
                 {
                     if (selectedDriver.actDeliveries < selectedDriver.maxDeliveries)
                     {
                         selectedDriver.actDeliveries++;
                         mapaSoria.Routes.Add(routeViews[i]);
+                        isRouteVisible[i] = true;
                     }
                 }
                 else
                 {
                     selectedDriver.actDeliveries--;
                     mapaSoria.Routes.Remove(routeViews[i]);
+                    isRouteVisible[i] = false;
                 }
 
 

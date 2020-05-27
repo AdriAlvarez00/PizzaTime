@@ -72,6 +72,7 @@ namespace LocaAcademiaDePizzeria
             happiness = model.happiness;
             money = model.money;
             carryBar = (int)(100 * (double)actDeliveries / (double)maxDeliveries);
+            routeColor = model.routeColor;
         }
     }
 }
