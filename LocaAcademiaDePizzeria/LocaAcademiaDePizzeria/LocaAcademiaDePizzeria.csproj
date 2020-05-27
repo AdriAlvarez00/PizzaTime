@@ -137,6 +137,9 @@
       <DependentUpon>ManualView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TitleScreen.xaml.cs">
+      <DependentUpon>TitleScreen.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -151,14 +154,20 @@
     <Content Include="Assets\Abilities\TurboAbility.png" />
     <Content Include="Assets\BotonMenuDron.png" />
     <Content Include="Assets\BotonMenuRepartidor.png" />
+    <Content Include="Assets\ExitGameSelected.png" />
+    <Content Include="Assets\ExitGameUnselected.png" />
     <Content Include="Assets\Icon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
     <Content Include="Assets\LargeTile.scale-200.png" />
     <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\LoadGameSelected.png" />
+    <Content Include="Assets\LoadGameUnselected.png" />
     <Content Include="Assets\MainMenuButtonActive.png" />
     <Content Include="Assets\MainMenuButtonInactive.png" />
+    <Content Include="Assets\NewGameButtonUnselected.png" />
+    <Content Include="Assets\NewGameSelected.png" />
     <Content Include="Assets\PizzaTimeButton.png" />
     <Content Include="Assets\Pizzeria.png" />
     <Content Include="Assets\PizzeriaUnselected.png" />
@@ -189,6 +198,7 @@
     <Content Include="Assets\SmallTile.scale-400.png" />
     <Content Include="Assets\SoriaMap.PNG" />
     <Content Include="Assets\Sounds\Italian_Spirit.mp3" />
+    <Content Include="Assets\Sounds\PizzySound.mp3" />
     <Content Include="Assets\SplashScreen.scale-100.png" />
     <Content Include="Assets\SplashScreen.scale-125.png" />
     <Content Include="Assets\SplashScreen.scale-150.png" />
@@ -221,6 +231,30 @@
     <Content Include="Assets\StoreLogo.scale-200.png" />
     <Content Include="Assets\StoreLogo.scale-400.png" />
     <Content Include="Assets\Tayuno.png" />
+    <Content Include="Assets\TitleArt.png" />
+    <Content Include="Assets\TitleBackground.png" />
+    <Content Include="Assets\TitleScreenButton.png" />
+    <Content Include="Assets\Tutorials\T1-1.png" />
+    <Content Include="Assets\Tutorials\T1-2.png" />
+    <Content Include="Assets\Tutorials\T2-1.png" />
+    <Content Include="Assets\Tutorials\T2-10.png" />
+    <Content Include="Assets\Tutorials\T2-11.png" />
+    <Content Include="Assets\Tutorials\T2-2.png" />
+    <Content Include="Assets\Tutorials\T2-3.png" />
+    <Content Include="Assets\Tutorials\T2-4.png" />
+    <Content Include="Assets\Tutorials\T2-5.png" />
+    <Content Include="Assets\Tutorials\T2-6.png" />
+    <Content Include="Assets\Tutorials\T2-7.png" />
+    <Content Include="Assets\Tutorials\T2-8.png" />
+    <Content Include="Assets\Tutorials\T2-9.png" />
+    <Content Include="Assets\Tutorials\T3-1.png" />
+    <Content Include="Assets\Tutorials\T3-2.png" />
+    <Content Include="Assets\Tutorials\T3-3.png" />
+    <Content Include="Assets\Tutorials\T3-4.png" />
+    <Content Include="Assets\Tutorials\T3-5.png" />
+    <Content Include="Assets\Tutorials\T3-6.png" />
+    <Content Include="Assets\Tutorials\T3-7.png" />
+    <Content Include="Assets\Tutorials\TutorialBlock.png" />
     <Content Include="Assets\Wide310x150Logo.scale-100.png" />
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
@@ -262,6 +296,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ManualView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TitleScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

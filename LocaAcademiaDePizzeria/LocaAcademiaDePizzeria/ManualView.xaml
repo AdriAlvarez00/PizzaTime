@@ -8,7 +8,7 @@
     xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -29,7 +29,7 @@
                PointerMoved="StreetCanvas_PointerMoved"
                PointerReleased="StreetCanvas_PointerReleased"
                />
-        
+
         <Border Background="Black" Grid.ColumnSpan="3" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,50,0,0">
             <TextBlock x:Name="Timer" Text="19:30:00" FontWeight="Bold" Foreground="White" FontFamily="Arial" FontSize="50px"/>
         </Border>
@@ -64,5 +64,7 @@
             <Image x:Name="JoystickBorder" Source="assets/ManualView/JoystickBorder.png" Height="200px" Opacity="0.5" Visibility="Collapsed"/>
             <Image x:Name="Joystick" Source="assets/ManualView/JoyStick.png" Height="100px" Opacity="0.5" Visibility="Collapsed"/>
         </Canvas>
+
+        <Canvas x:Name="tutorialCanvas"/>
     </Grid>
 </Page>

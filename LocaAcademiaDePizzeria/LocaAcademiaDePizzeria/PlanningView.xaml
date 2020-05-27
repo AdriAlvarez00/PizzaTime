@@ -65,7 +65,7 @@
                          MapServiceToken="3F9n0LcGV1wSH3iIU89U~BwTbE03iRdHjskVJ_rPB5Q~AuNQu5A2wnQJDEEiczijHmsZDJOxjSF-_a--KOaTCWvf26nhdG0PrJmIHUiPIqrU"
                          TrafficFlowVisible="True">
         </maps:MapControl>
-        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Width="165" Height="80" Background="LightBlue" Opacity="50">
+        <Grid VerticalAlignment="Top" HorizontalAlignment="Right" Width="165" Height="80" Background="#ADD8E6EF" Opacity="50">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="5*" />
                 <ColumnDefinition Width="3*" />
@@ -99,7 +99,7 @@
         </Button>
         <Grid x:Name="Grid_expandedAbility"
             HorizontalAlignment="Left" VerticalAlignment="Top"
-              Width="1059" Height="168" Background="LightBlue">
+              Width="1059" Height="168" Background="#ADD8E6EF">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="125px" />
                 <ColumnDefinition Width="1*" />
@@ -124,7 +124,7 @@
         </Grid>
         <Grid x:Name="Grid_expandedDrivers"
             HorizontalAlignment="Left" VerticalAlignment="Bottom"
-              Width="884" Height="266" Background="LightBlue">
+              Width="884" Height="266" Background="#ADD8E6EF">
             <Grid.ColumnDefinitions>
                 <!--<ColumnDefinition Width="125px" />-->
                 <ColumnDefinition Width="1*" />
@@ -147,14 +147,14 @@
             <Button Style="{StaticResource CloseTabButtonStyle}" x:Name="Button_CloseDrivers" Click="Button_CloseDrivers_Click" />
         </Grid>
         <Grid x:Name="Grid_DriverInfo" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-              Width="342" Height="420" Background="LightBlue" RenderTransformOrigin="0.499,0.643">
+              Width="342" Height="420" Background="#ADD8E6EF" RenderTransformOrigin="0.499,0.643">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
             <Image x:Name="driverInfoImg" Grid.Row="0" Source="Assets/LargeTile.scale-400.png" />
-            <TextBlock x:Name="driverInfoDescription" Grid.Row="1" Text="PIZZY ESTA AQUI" HorizontalAlignment="Center" />
+            <TextBlock x:Name="driverInfoDescription" Grid.Row="1" Text="Estadísticas de los conductores" HorizontalAlignment="Center" />
             <Grid x:Name="driverInfoStats" Grid.Row="2" Margin="0,0,0,46">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*" />
@@ -176,14 +176,24 @@
             </Grid>
         </Grid>
         <Grid x:Name="Grid_AbilityInfo" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-              Width="342" Height="420" Background="LightBlue" RenderTransformOrigin="0.499,0.643">
+              Width="342" Height="420" Background="#ADD8E6EF" RenderTransformOrigin="0.499,0.643">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <Image x:Name="abilityInfoImg" Grid.Row="0" Source="Assets/LargeTile.scale-400.png" />
-            <TextBlock x:Name="abilityInfoDescription" Grid.Row="1" Text="PIZZY ESTA AQUI" HorizontalAlignment="Center"
+            <TextBlock x:Name="abilityInfoDescription" Grid.Row="1" Text="Información de las habilidades" HorizontalAlignment="Center"
                        TextWrapping="WrapWholeWords" />
         </Grid>
+
+        <Image
+            x:Name="tutorialBlock"
+            Source="Assets/Tutorials/TutorialBlock.png"
+            Stretch="Fill">
+        </Image>
+
+        <Canvas x:Name="tutorialCanvas"/>
+
+
     </Grid>
 </Page>
