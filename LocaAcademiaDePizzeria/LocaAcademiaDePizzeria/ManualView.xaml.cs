@@ -23,6 +23,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 using static LocaAcademiaDePizzeria.PlanningView;
+using static LocaAcademiaDePizzeria.MainMenu;
 
 // La plantilla de elemento Página en blanco está documentada en https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -40,9 +41,11 @@ namespace LocaAcademiaDePizzeria
 
         public int maxJoystickDistance = 60;
 
-        public int timerSpeed = 10;
+        public int timerSpeed = 1;
 
         public double opacityChange = 0.5;
+
+        public DispatcherTimer dispatcherTimer;
 
         public DateTime dateTimer;
 
@@ -53,10 +56,14 @@ namespace LocaAcademiaDePizzeria
         public bool[] isRouteVisible;
 
         public MediaPlayer mediaPlayer;
+
         public MediaPlayer tutorialSounds;
 
         private Button[] tutorials = new Button[7];
+
         private int currentTutorial = 0;
+
+        public Geopoint pizzeriaPosition;
 
         public ManualView()
         {
@@ -74,7 +81,7 @@ namespace LocaAcademiaDePizzeria
             mapaSoria.ZoomLevel = 15;
 
             //timer
-            DispatcherTimer dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer = new DispatcherTimer();
             dispatcherTimer.Tick += new EventHandler<object>(dispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, timerSpeed);
             dispatcherTimer.Start();
@@ -91,6 +98,7 @@ namespace LocaAcademiaDePizzeria
             routeViews = p.routeViews;
             isRouteVisible = p.isRouteVisible;
             tutorialSounds = p.tutorialSounds;
+            pizzeriaPosition = p.pizzeriaPosition;
             CreateBikes();
             createTutorials();
         }
@@ -213,6 +221,16 @@ namespace LocaAcademiaDePizzeria
         {
             dateTimer = dateTimer.AddSeconds(1);
             Timer.Text = dateTimer.Hour.ToString("D2") + ":" + dateTimer.Minute.ToString("D2") + ":" + dateTimer.Second.ToString("D2");
+            if(dateTimer.Hour >= 20)
+            {
+                MainMenuParameters p = new MainMenuParameters();
+                p.mediaPlayer = mediaPlayer;
+                p.selectedLocation = pizzeriaPosition;
+                p.tutorialSounds = tutorialSounds;
+                this.Frame.Navigate(typeof(PlanningView), p);
+                dateTimer.Subtract(dateTimer);
+                dispatcherTimer.Stop();
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

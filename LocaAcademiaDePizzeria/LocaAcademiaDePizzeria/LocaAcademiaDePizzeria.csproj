@@ -166,6 +166,7 @@
     <Content Include="Assets\LoadGameUnselected.png" />
     <Content Include="Assets\MainMenuButtonActive.png" />
     <Content Include="Assets\MainMenuButtonInactive.png" />
+    <Content Include="Assets\ManualView\calleSoria.png" />
     <Content Include="Assets\NewGameButtonUnselected.png" />
     <Content Include="Assets\NewGameSelected.png" />
     <Content Include="Assets\PizzaTimeButton.png" />
@@ -268,7 +269,6 @@
     <Content Include="Assets\ManualView\Joystick.png" />
     <Content Include="Assets\ManualView\JoystickBorder.png" />
     <Content Include="Assets\ManualView\Request.png" />
-    <Content Include="Assets\ManualView\StreetView.jpg" />
     <Content Include="Assets\ManualView\VisionCone.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
